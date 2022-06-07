@@ -1,0 +1,148 @@
+﻿<Window x:Class="Michal_openweather_api.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Michal_openweather_api"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+      FontFamily="Cambria"
+        Title="MainWindow" Height="500" Width="800" Background="Transparent" WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="true">
+    <Border CornerRadius="15 15 15 15" Background="#EAE5E6"  BorderThickness="3">
+    <Grid >
+
+
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+            <TextBox x:Name="searchbox" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Height="30" Width="220" Margin="0 -80 18 0" TextAlignment="Center" FontSize="20"></TextBox>
+        <Button Grid.Row="0" Grid.Column="4" Height="30" Width="40" Margin="2 -80 0 0" Click="search" HorizontalAlignment="Left">search</Button>
+            <TextBlock x:Name="datenow" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" TextAlignment="Center" VerticalAlignment="Center" Height="32" Width="330" FontSize="22" HorizontalAlignment="Left" Margin="32 5 0 0 " ></TextBlock>
+
+            <TextBlock x:Name="citybox" TextAlignment="Center" Width="230" Height="50" Margin="68 0 0 -5" FontSize="25"  Grid.Column="2" Grid.Row="0" VerticalAlignment="Bottom" Grid.ColumnSpan="2"></TextBlock>
+        
+           
+
+        <StackPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" >
+
+                <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" VerticalAlignment="Bottom">
+                    <Image x:Name="weatherimagenow"  Width="100" Height="100" Margin="125 5 5 0" ></Image>
+                    <TextBlock x:Name="tempboxnow" TextAlignment="Center" Width="60" Height="50" FontSize="28"  Margin="0 6 0 0"></TextBlock>
+                </StackPanel>
+
+
+                <TextBlock x:Name="weatherdescnow" HorizontalAlignment="Center" Margin="62 0 0 0" Width="220" Height="30" TextAlignment="Center" FontSize="22" ></TextBlock>
+        </StackPanel>
+
+            
+
+            <Border Grid.Column="0" Grid.Row="0"  Grid.RowSpan="3" Grid.ColumnSpan="2" CornerRadius="15 0 0 15"  BorderThickness="1" Background="#D4CAC6" Height="496" Width="320" Margin="-1 -1 85 0">
+                <StackPanel  Margin="0 56 0 0" Grid.ColumnSpan="2" >
+
+                <TextBlock x:Name="latitudeblocknow" Margin="130 26 0 0" FontSize="20" Foreground="#FF4F4F4F">N/A</TextBlock>
+                    <TextBlock x:Name="longitudeblocknow" Margin="130 26 0 0" FontSize="20" Foreground="#FF4F4F4F">N/A</TextBlock>
+                    <TextBlock x:Name="feelslikeblocknow" Margin="130 26 0 0" FontSize="20" Foreground="#FF4F4F4F">N/A</TextBlock>
+                    <TextBlock x:Name="humidityblocknow" Margin="130 26 0 0" FontSize="20" Foreground="#FF4F4F4F">N/A</TextBlock>
+                    <TextBlock x:Name="pressureblocknow" Margin="130 26 0 0" FontSize="20" Foreground="#FF4F4F4F">N/A</TextBlock>
+                    <TextBlock x:Name="windblocknow" Margin="130 26 0 0" FontSize="20" Foreground="#FF4F4F4F">N/A</TextBlock>
+                    <TextBlock x:Name="sunriseblocknow" Margin="130 26 0 0" FontSize="20" Foreground="#FF4F4F4F">N/A</TextBlock>
+                    <TextBlock x:Name="sunsetblocknow" Margin="130 26 0 0" FontSize="20" Foreground="#FF4F4F4F">N/A</TextBlock>
+            </StackPanel>
+            </Border>
+
+
+
+            <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Margin="0 56 0 0" >
+                <TextBlock Margin="20 26 0 0" FontSize="20">Latitude</TextBlock>
+                <TextBlock Margin="20 26 0 0" FontSize="20">Longitude</TextBlock>
+                <TextBlock Margin="20 26 0 0" FontSize="20">Feels like</TextBlock>
+                <TextBlock Margin="20 26 0 0" FontSize="20">Humidity</TextBlock>
+                <TextBlock Margin="20 26 0 0" FontSize="20">Pressure</TextBlock>
+                <TextBlock Margin="20 26 0 0" FontSize="20">Wind speed</TextBlock>
+                <TextBlock Margin="20 26 0 0" FontSize="20">Sunrise</TextBlock>
+                <TextBlock Margin="20 26 0 0" FontSize="20">Sunset</TextBlock>
+
+            </StackPanel>
+
+
+
+
+
+
+            <Border BorderThickness="1" BorderBrush="#D4CAC5" CornerRadius="10 10 10 10" Grid.Row="2" Grid.Column="1" Height="160" Width="145" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="125 0 0 0" Background="#D4CAC6">
+            <StackPanel>
+                    <TextBlock x:Name="datetime1" TextAlignment="Center" Height="25" FontSize="12" Margin="0 5 0 0">czwartek, 9 czerwca 2022</TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="weatherimage1" Height="60" Width="60" Margin="20 0 0 0 "></Image>
+                        <TextBlock x:Name="temp1" FontSize="25" TextAlignment="Center" VerticalAlignment="Center">25°C</TextBlock>
+                    </StackPanel>
+
+                    <TextBlock x:Name="weatherblockdesc1" TextAlignment="Center" FontSize="15">Sunny</TextBlock>
+                    <StackPanel Orientation="Horizontal" Margin="45 10 0 0" >
+                    <TextBlock x:Name="tempmaxblock1" Margin="0 0 0 0">MAX /</TextBlock>
+                    <TextBlock x:Name="tempminblock1">MIN</TextBlock>
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+
+            <Border BorderThickness="1" BorderBrush="#C3CCE0" CornerRadius="10 10 10 10" Grid.Row="2" Grid.Column="2" Height="160" Width="145" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="125 0 0 0" Background="#C3CCE1">
+                <StackPanel>
+                    <TextBlock x:Name="datetime2" TextAlignment="Center" Height="25" FontSize="12" Margin="0 5 0 0">piątek, 10 czerwca 2022</TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="weatherimage2" Height="60" Width="60" Margin="20 0 0 0 "></Image>
+                        <TextBlock x:Name="temp2" FontSize="25" TextAlignment="Center" VerticalAlignment="Center">24°C</TextBlock>
+                    </StackPanel>
+
+                    <TextBlock x:Name="weatherblockdesc2" TextAlignment="Center" FontSize="15">Scattered clouds</TextBlock>
+                    <StackPanel Orientation="Horizontal" Margin="45 10 0 0" >
+                        <TextBlock x:Name="tempmaxblock2" Margin="0 0 0 0" >MAX /</TextBlock>
+                        <TextBlock x:Name="tempminblock2" >MIN</TextBlock>
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+
+            <Border BorderThickness="1" BorderBrush="#D4CAC5" CornerRadius="10 10 10 10" Grid.Row="2" Grid.Column="3" Height="160" Width="145" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="125 0 0 0" Background="#D4CAC6">
+                <StackPanel>
+                    <TextBlock x:Name="datetime3" TextAlignment="Center" Height="25" FontSize="12" Margin="0 5 0 0">sobota, 11 czerwca 2022</TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="weatherimage3" Height="60" Width="60" Margin="20 0 0 0 "></Image>
+                        <TextBlock x:Name="temp3" FontSize="25" TextAlignment="Center" VerticalAlignment="Center">23°C</TextBlock>
+                    </StackPanel>
+
+                    <TextBlock x:Name="weatherblockdesc3" TextAlignment="Center" FontSize="15">Light rain</TextBlock>
+                    <StackPanel Orientation="Horizontal" Margin="45 10 0 0" >
+                        <TextBlock x:Name="tempmaxblock3" Margin="0 0 0 0">MAX /</TextBlock>
+                        <TextBlock x:Name="tempminblock3">MIN</TextBlock>
+
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+
+           <Image x:Name="minimizepic" Source="/minimize.png" Height="15" Width="15" Grid.Row="0" Grid.Column="4" VerticalAlignment="Top" Margin="75 5 0 0" MouseLeftButtonDown="minimizeme" MouseEnter="minimize1" MouseLeave="minimize2"></Image>
+            <Image x:Name="closepic" Source="/close.png" Height="15" Width="15" Grid.Row="0" Grid.Column="4" VerticalAlignment="Top" Margin="125 5 0 0" MouseLeftButtonDown="closeapp" MouseEnter="cursorhand1" MouseLeave="cursorhand2" />
+            <Image x:Name="searchpng" Source="/search.png" Height="15" Width="15" Grid.Row="0" Grid.Column="2" Margin="32 35 0 0" VerticalAlignment="Top"></Image>
+
+
+
+
+
+        </Grid>
+    </Border>
+
+
+</Window>
